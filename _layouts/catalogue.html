@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<h1>{{ page.title | escape }}</h1>
+{{ content }}
+{% assign pkgs = site.data.packages | sort: "name" %}
+{% assign sections = site.data.packages | map: "section" | uniq | sort %}
+<div class="catalogue-tools">
+  <input type="search" id="q" placeholder="Search {{ pkgs.size }} packages ..." aria-label="Search packages">
+</div>
+<div class="sections" id="sections">
+  <button class="on" data-section="">All ({{ pkgs.size }})</button>
+  {% for s in sections %}{% assign n = site.data.packages | where: "section", s | size %}
+  <button data-section="{{ s }}">{{ s | remove: "user/" | capitalize }} ({{ n }})</button>{% endfor %}
+</div>
+<p class="count" id="count"></p>
+<div class="grid" id="grid">
+{% for p in pkgs %}
+  <a class="card" href="{{ '/packages/' | append: p.name | append: '/' | relative_url }}" data-name="{{ p.name | downcase }}" data-section="{{ p.section }}" data-text="{{ p.title | append: ' ' | append: p.name | append: ' ' | append: p.short | downcase | escape }}">
+    <div class="head"><img class="icon" src="{{ p.icon | relative_url }}" alt=""><span class="name">{{ p.title }}</span><span class="ver">{{ p.version | split: ':' | last }}</span></div>
+    <p>{{ p.short }}</p>
+    <span class="chip">{{ p.section | remove: "user/" }}</span>
+  </a>
+{% endfor %}
+</div>
+<script src="{{ '/assets/js/catalogue.js' | relative_url }}"></script>

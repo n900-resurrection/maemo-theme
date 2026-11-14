@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<article>
+  <h1 class="post-title">{{ page.title | escape }}</h1>
+  <p class="meta">{{ page.date | date: "%-d %B %Y" }}{% if page.author %} &middot; {{ page.author }}{% endif %}</p>
+  {{ content }}
+  {% if page.tags.size > 0 %}<p class="tags meta">Tags: {% for t in page.tags %}<span class="chip">{{ t }}</span> {% endfor %}</p>{% endif %}
+</article>

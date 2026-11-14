@@ -1,0 +1,117 @@
+/* maemo-theme: a Jekyll theme in the look of the Maemo community sites (maemo.org, talk.maemo.org), drawn with CSS only (no image sprites).
+ *
+ * The colours, the typeface and the structure (dark header band, tabbed navigation, white content box, orange links) follow the style sheets
+ * of the Maemo community web site as mirrored at https://maemo.viniciuspaes.com/ (css/master.css, css/talk.css, css/table.css; their copy
+ * is in reference/original-css/). Those pages are published under Creative Commons Attribution-ShareAlike 3.0
+ * (http://creativecommons.org/licenses/by-sa/3.0/): this file is a derivative work and is shared under the same licence, see NOTICE.md.
+ * No logos or artwork of Nokia or Maemo are included.
+ */
+:root {
+  --orange: #fa8700;
+  --orange-dark: #ee6100;
+  --orange-light: #fb9200;
+  --visited: #a35700;
+  --text: #404040;
+  --text-strong: #333;
+  --grey: #787878;
+  --grey-light: #a5a5a6;
+  --line: #d9d9d9;
+  --bg: #eaeaea;
+  --card: #fff;
+  --header-top: #4f5050;
+  --header-bottom: #333;
+}
+* { box-sizing: border-box; }
+html { font-size: 62.5%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 1.4rem/1.55 Arial, Helvetica, sans-serif;
+}
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: var(--visited); }
+h1, h2, h3, h4 { margin: .8em 0 .4em; color: var(--text-strong); line-height: 1.25; }
+h1 { font-size: 2.6rem; } h2 { font-size: 2rem; } h3 { font-size: 1.6rem; }
+p, li { font-size: 1.4rem; }
+img { max-width: 100%; border: 0; }
+code, pre { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 1.25rem; }
+pre { background: #f6f6f6; border: 1px solid var(--line); border-radius: 4px; padding: .9rem 1.1rem; overflow-x: auto; }
+:not(pre) > code { background: #f2f2f2; border: 1px solid #e3e3e3; border-radius: 3px; padding: 0 .3em; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { text-align: left; padding: .5rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: #f0f0f0; color: var(--text-strong); font-weight: bold; }
+blockquote { margin: 1rem 0; padding: .2rem 1.2rem; border-left: 4px solid var(--orange); background: #fffbf2; }
+
+#container { max-width: 980px; margin: 0 auto; padding: 0 12px; }
+
+/* header band and tabs */
+#header {
+  background: linear-gradient(var(--header-top), var(--header-bottom));
+  color: #fff; padding: 1.6rem 2rem 1.2rem; margin: 12px 0 0;
+  border-radius: 6px 6px 0 0; border-bottom: 3px solid var(--orange);
+}
+#header a, #header a:visited { color: #fff; }
+#header .site-title { font-size: 3rem; font-weight: bold; letter-spacing: .02em; text-decoration: none; }
+#header .site-title span { color: var(--orange-light); }
+#header .tagline { margin: .2rem 0 0; color: #ddd; font-size: 1.3rem; }
+#navigation { background: #404040; border-radius: 0 0 6px 6px; margin-bottom: 14px; }
+#navigation ul { list-style: none; margin: 0; padding: 0 1rem; display: flex; flex-wrap: wrap; }
+#navigation li { margin: 0; }
+#navigation a, #navigation a:visited {
+  display: block; padding: .9rem 1.6rem; color: #ddd; font-weight: bold; font-size: 1.3rem; text-decoration: none;
+}
+#navigation a:hover { color: #fff; background: #4f5050; }
+#navigation li.selected a { color: #fff; background: linear-gradient(var(--orange-light), var(--orange-dark)); }
+
+/* content */
+#content { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 1.2rem 2.4rem 2.4rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+#content > h1:first-child { margin-top: 1rem; padding-bottom: .4rem; border-bottom: 2px solid var(--orange); }
+.lead { font-size: 1.6rem; color: var(--grey); }
+.button, a.button:visited {
+  display: inline-block; padding: .6rem 1.4rem; color: #fff; font-weight: bold; border: 1px solid var(--orange-dark); border-radius: 4px;
+  background: linear-gradient(var(--orange-light), var(--orange-dark)); text-decoration: none;
+}
+.button:hover { text-decoration: none; filter: brightness(1.07); }
+.chip { display: inline-block; padding: 0 .7rem; font-size: 1.15rem; color: #fff; background: var(--grey); border-radius: 9px; }
+.meta { color: var(--grey); font-size: 1.2rem; }
+
+/* blog */
+.post-list { list-style: none; padding: 0; }
+.post-list li { padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.post-list .date { color: var(--grey); font-size: 1.2rem; margin-right: 1rem; }
+.post-title { margin-top: 1rem; }
+.tags a { margin-right: .6rem; }
+
+/* package catalogue */
+.catalogue-tools { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin: 1rem 0; }
+.catalogue-tools input[type=search] { flex: 1 1 22rem; padding: .6rem .9rem; font-size: 1.4rem; border: 1px solid var(--grey-light); border-radius: 4px; }
+.sections { display: flex; flex-wrap: wrap; gap: .5rem; }
+.sections button {
+  padding: .35rem 1rem; font-size: 1.25rem; cursor: pointer; background: #f0f0f0; color: var(--text-strong);
+  border: 1px solid var(--line); border-radius: 14px;
+}
+.sections button.on { background: linear-gradient(var(--orange-light), var(--orange-dark)); color: #fff; border-color: var(--orange-dark); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.card { display: block; padding: 1rem 1.2rem; background: #fafafa; border: 1px solid var(--line); border-radius: 6px; color: var(--text); }
+.card:hover { border-color: var(--orange); background: #fffbf2; text-decoration: none; }
+.card:visited { color: var(--text); }
+.card .head { display: flex; align-items: center; gap: .8rem; }
+.card img.icon { width: 26px; height: 26px; image-rendering: pixelated; }
+.card .name { font-weight: bold; color: var(--text-strong); font-size: 1.5rem; }
+.card .ver { margin-left: auto; font-size: 1.15rem; color: var(--grey); }
+.card p { margin: .5rem 0 .4rem; font-size: 1.25rem; color: var(--text); }
+.count { color: var(--grey); font-size: 1.25rem; }
+.package-head { display: flex; align-items: center; gap: 1.2rem; }
+.package-head img.icon { width: 52px; height: 52px; image-rendering: pixelated; }
+.package-head h1 { margin: 0; border: 0 !important; padding: 0 !important; }
+.install { margin: 1.2rem 0; padding: 1rem 1.4rem; background: #fffbf2; border: 1px solid #f0d9a8; border-radius: 6px; }
+.install pre { margin: .5rem 0 0; background: #fff; }
+.description { white-space: pre-wrap; background: #fafafa; border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.3rem; }
+
+#footer { margin: 14px 0 28px; padding: 0 1rem; text-align: center; color: var(--grey); font-size: 1.2rem; }
+#footer a { color: var(--grey); text-decoration: underline; }
+@media (max-width: 640px) {
+  #content { padding: 1rem 1.2rem 2rem; }
+  #header .site-title { font-size: 2.4rem; }
+  #navigation a { padding: .8rem 1rem; }
+}
