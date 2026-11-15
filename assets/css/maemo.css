@@ -96,13 +96,13 @@ blockquote { margin: 1rem 0; padding: .2rem 1.2rem; border-left: 4px solid var(-
 .card:hover { border-color: var(--orange); background: #fffbf2; text-decoration: none; }
 .card:visited { color: var(--text); }
 .card .head { display: flex; align-items: center; gap: .8rem; }
-.card img.icon { width: 26px; height: 26px; image-rendering: pixelated; }
+.card img.icon { width: 26px; height: 26px; image-rendering: auto; }
 .card .name { font-weight: bold; color: var(--text-strong); font-size: 1.5rem; }
 .card .ver { margin-left: auto; font-size: 1.15rem; color: var(--grey); }
 .card p { margin: .5rem 0 .4rem; font-size: 1.25rem; color: var(--text); }
 .count { color: var(--grey); font-size: 1.25rem; }
 .package-head { display: flex; align-items: center; gap: 1.2rem; }
-.package-head img.icon { width: 52px; height: 52px; image-rendering: pixelated; }
+.package-head img.icon { width: 52px; height: 52px; image-rendering: auto; }
 .package-head h1 { margin: 0; border: 0 !important; padding: 0 !important; }
 .install { margin: 1.2rem 0; padding: 1rem 1.4rem; background: #fffbf2; border: 1px solid #f0d9a8; border-radius: 6px; }
 .install pre { margin: .5rem 0 0; background: #fff; }
@@ -115,3 +115,10 @@ blockquote { margin: 1rem 0; padding: .2rem 1.2rem; border-left: 4px solid var(-
   #header .site-title { font-size: 2.4rem; }
   #navigation a { padding: .8rem 1rem; }
 }
+
+/* previous / next post at the end of a post */
+.post-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.post-nav a { flex: 1 1 0; max-width: 48%; text-decoration: none; }
+.post-nav a:hover { text-decoration: underline; }
+.post-nav .next { text-align: right; }
+@media (max-width: 600px) { .post-nav { flex-direction: column; } .post-nav a { max-width: none; } .post-nav .next { text-align: left; } }

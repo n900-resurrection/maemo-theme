@@ -7,3 +7,9 @@ layout: default
   {{ content }}
   {% if page.tags.size > 0 %}<p class="tags meta">Tags: {% for t in page.tags %}<span class="chip">{{ t }}</span> {% endfor %}</p>{% endif %}
 </article>
+{% if page.previous or page.next %}
+<nav class="post-nav" aria-label="Other posts">
+  {% if page.previous %}<a class="prev" href="{{ page.previous.url | relative_url }}"><span class="meta">&larr; Previous</span><br>{{ page.previous.title | escape }}</a>{% else %}<span></span>{% endif %}
+  {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span class="meta">Next &rarr;</span><br>{{ page.next.title | escape }}</a>{% else %}<span></span>{% endif %}
+</nav>
+{% endif %}
