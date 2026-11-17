@@ -11,7 +11,10 @@ layout: default
 <div class="install">
   <strong>Install</strong> (after <a href="{{ '/' | relative_url }}#use">adding the repository</a>):
   <pre>apt-get install {{ p.name }}</pre>
-  <a class="button" href="{{ p.url }}">Download .deb</a>
+  <p class="buttons" style="margin-top:1.2rem"><a class="button" href="{{ p.url }}">Download .deb</a>
+  {% if p.install %}<a class="button" href="{{ '/install/packages/' | append: p.name | append: '.install' | relative_url }}" download>Install file for the N900</a>{% endif %}</p>
+{% if p.install %}  <p class="meta">On the phone: download the install file and open it, the Application Manager offers the package. It needs <code>curl</code> and <code>apt-transport-curl</code>
+  first, see <a href="{{ '/guide/software-setup/' | relative_url }}">Software setup</a>.</p>{% endif %}
 </div>
 <table>
   <tr><th style="width:14rem">Version</th><td>{{ p.version }}</td></tr>

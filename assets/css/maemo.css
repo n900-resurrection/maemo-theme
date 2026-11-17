@@ -122,3 +122,14 @@ blockquote { margin: 1rem 0; padding: .2rem 1.2rem; border-left: 4px solid var(-
 .post-nav a:hover { text-decoration: underline; }
 .post-nav .next { text-align: right; }
 @media (max-width: 600px) { .post-nav { flex-direction: column; } .post-nav a { max-width: none; } .post-nav .next { text-align: left; } }
+
+/* guide pages: figures and galleries */
+.figure { margin: 1rem 0; text-align: center; }
+.figure img { border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+.figure figcaption { color: var(--grey); font-size: 1.25rem; margin-top: .3rem; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.gallery .figure { margin: 0; }
+.guide-list { list-style: none; padding: 0; counter-reset: guide; }
+.guide-list li { padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.guide-list a { font-weight: bold; }
+.guide-list .meta { display: block; }

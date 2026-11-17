@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% assign pages = site.guide | sort: "order" %}
+<article class="guide">
+  <p class="meta"><a href="{{ '/guide/' | relative_url }}">Guide</a> &rsaquo; {{ page.title | escape }}</p>
+  <h1 class="post-title">{{ page.title | escape }}</h1>
+  {{ content }}
+</article>
+<nav class="post-nav" aria-label="Guide pages">
+{% for p in pages %}{% if p.url == page.url %}
+  {% assign i = forloop.index0 %}
+{% endif %}{% endfor %}
+{% assign pi = i | minus: 1 %}{% assign ni = i | plus: 1 %}{% assign prev = pages[pi] %}{% assign next = pages[ni] %}
+  {% if i > 0 %}<a class="prev" href="{{ prev.url | relative_url }}"><span class="meta">&larr; Previous</span><br>{{ prev.title | escape }}</a>{% else %}<span></span>{% endif %}
+  {% if next %}<a class="next" href="{{ next.url | relative_url }}"><span class="meta">Next &rarr;</span><br>{{ next.title | escape }}</a>{% else %}<span></span>{% endif %}
+</nav>
